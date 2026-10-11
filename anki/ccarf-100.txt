@@ -1,0 +1,100 @@
+stop_reason == 'end_turn' means what?	Claude is done. The response text is the final answer. Terminate the loop.	CCAR-F D1
+Anti-pattern: treating assistant text content as a completion indicator. Why wrong?	The model can emit text alongside a tool_use block. Text present ≠ turn finished.	CCAR-F D1
+What is hub-and-spoke architecture?	One coordinator at the centre; all subagent communication, error handling and routing flow through it. Subagents never talk directly to each other.	CCAR-F D1
+Four responsibilities of a coordinator agent?	Task decomposition, delegation, result aggregation, and deciding which subagents to invoke based on query complexity.	CCAR-F D1
+Should a coordinator always route through the full subagent pipeline?	No. It should dynamically select which subagents to invoke based on query requirements — running everything wastes tokens and latency.	CCAR-F D1
+Should coordinator prompts give step-by-step procedures or goals?	Goals plus quality criteria. Procedural scripts prevent subagent adaptability; criteria let the system adjust to what it finds.	CCAR-F D1
+How should a multi-concern customer message be handled?	Decompose into distinct items, investigate each in parallel using shared context, then synthesise one unified resolution.	CCAR-F D1
+Why is emitting Task calls across separate turns slower than in one response?	Each turn is a serialised round-trip. Multiple Task calls in one response let the subagents run concurrently.	CCAR-F D1
+Hooks give ____ guarantees; prompts give ____ compliance.	Deterministic; probabilistic.	CCAR-F D1
+Give the loop in five words.	Call, inspect, execute, append, repeat.	CCAR-F D1
+Definition: result aggregation.	The coordinator combining subagent outputs into one coherent response, resolving conflicts and gaps.	CCAR-F D1
+Does a subagent share memory across separate invocations of itself?	No. Each invocation is isolated. Nothing persists unless you pass it in or write it to a file.	CCAR-F D1
+Which hook type would you use to redact PII from tool results before the model sees them?	PostToolUse — it intercepts results before the model processes them.	CCAR-F D1
+Is an iteration cap useless then?	No — it's a valid runaway backstop. It just must not be the PRIMARY termination mechanism.	CCAR-F D1
+Can one assistant turn contain more than one tool call?	Yes. A response can hold several tool_use blocks. Your loop runs all of them and returns every tool_result in ONE user message before the next call.	CCAR-F D1
+Can a subagent invoke another subagent directly?	Not in hub-and-spoke. All routing goes through the coordinator.	CCAR-F D1
+What is the context-budget argument for subagents?	A single agent reading 10 files and running 5 searches fills its own window before finishing. Subagents absorb that volume and return compact summaries.	CCAR-F D1
+Complete: stop_reason 'tool_use' → ___	Execute the requested tool, append the result to history, call the API again.	CCAR-F D1
+Complete: parallel subagents = multiple Task calls in ___	a single coordinator response.	CCAR-F D1
+Symptom: the agent calls the same tool repeatedly with identical arguments. Diagnosis?	Tool results aren't being appended to the conversation history.	CCAR-F D1
+Why aren't few-shot examples the best first fix for tool misrouting?	They add token overhead on every request without fixing the root cause — inadequate descriptions.	CCAR-F D2
+When should you SPLIT a generic tool?	When it serves multiple distinct purposes. Split analyze_document into extract_data_points, summarize_content, verify_claim_against_source — each with a defined I/O contract.	CCAR-F D2
+Name the four error categories the guide distinguishes.	Transient (timeouts, service unavailable), validation (invalid input), business (policy violations), permission.	CCAR-F D2
+Why are uniform 'Operation failed' errors harmful?	They prevent the agent from making appropriate recovery decisions — it can't tell retry-worthy from permanently-blocked.	CCAR-F D2
+Why not just give the synthesis agent all web search tools?	Over-provisioning violates separation of concerns and degrades selection reliability. Least privilege wins.	CCAR-F D2
+Why is batching all verification needs to the end a bad fix?	It creates blocking dependencies — later synthesis steps may depend on earlier verified facts.	CCAR-F D2
+Where do personal/experimental MCP servers go?	User-level ~/.claude.json — not shared with the team.	CCAR-F D2
+Agent prefers built-in Grep over your more capable MCP tool. Fix?	Enhance the MCP tool's description to explain its capabilities and outputs in detail, so the model sees why it's better.	CCAR-F D2
+Find all callers of a function — Grep or Glob?	Grep. You're searching contents, not filenames.	CCAR-F D2
+Agent hits a rate limit from an MCP tool. Which errorCategory, and isRetryable?	transient; isRetryable true (typically with a wait). Contrast with a business rule violation: not retryable.	CCAR-F D2
+State the principle behind scoped tool access in three words.	Principle of least privilege.	CCAR-F D2
+What's the cheapest high-leverage fix for unreliable tool selection?	Better tool descriptions. It's the root cause and requires no new infrastructure.	CCAR-F D2
+What is a 'scoped cross-role tool'?	A narrow tool given to an agent outside its main specialization to cover a high-frequency need — e.g. verify_fact for the synthesis agent.	CCAR-F D2
+You need every file matching **/*.config.ts. Tool?	Glob.	CCAR-F D2
+MCP's three primitives?	Tools (actions the model invokes), Resources (content the model reads — catalogs, schemas, summaries), Prompts (reusable templates a server offers). The exam tests tools and resources; know that prompts exist.	CCAR-F D2
+Shape of a .mcp.json entry?	{"mcpServers": {"github": {"command": "npx", "args": ["-y", "@modelcontextprotocol/server-github"], "env": {"GITHUB_TOKEN": "${GITHUB_TOKEN}"}}}} — secrets via ${VAR} inside env, file committed, token not.	CCAR-F D2
+[Support Agent] lookup_order returns 40 fields, 5 relevant. Fix?	Trim the tool output to relevant fields before it enters context.	CCAR-F D2
+You must keep both similar tools. How do you make selection reliable?	Rename for distinctness and give each a description stating explicitly when to use it rather than the other.	CCAR-F D2
+State the tool-description rule as a heuristic.	Write it like API docs: what it does, when to use it over siblings, an example call, and error conditions.	CCAR-F D2
+Give three symptoms of a tool-description defect.	Model picks the wrong tool among similar ones; behaviour is inconsistent for the same request type; descriptions are one line each.	CCAR-F D2
+Are ~/.claude/CLAUDE.md instructions shared with teammates?	No. User-level settings apply only to that user and are not shared via version control.	CCAR-F D3
+Where do personal slash commands live?	~/.claude/commands/ in your home directory — not shared.	CCAR-F D3
+What does argument-hint do?	Prompts developers for required parameters when they invoke the skill without arguments.	CCAR-F D3
+What does the paths field in .claude/rules/ frontmatter do?	Holds glob patterns for conditional rule activation — the rule loads only when editing matching files.	CCAR-F D3
+Why are skills the wrong answer for automatic convention loading?	Skills require invocation or Claude choosing to load them. The requirement is deterministic AUTOMATIC application based on file path.	CCAR-F D3
+What is the Explore subagent for?	Isolating verbose discovery output and returning summaries, preserving main conversation context during multi-phase tasks.	CCAR-F D3
+Can plan mode and direct execution be combined?	Yes — plan the library migration, then directly execute the planned approach. That's an explicitly listed skill.	CCAR-F D3
+What is the interview pattern?	Having Claude ask YOU questions to surface considerations you hadn't anticipated (cache invalidation, failure modes) before it implements.	CCAR-F D3
+A codebase-analysis skill floods your main conversation. One frontmatter key fixes it. Which?	context: fork	CCAR-F D3
+Null values break your migration script. Most effective correction?	Provide specific test cases with example input and expected output for the edge case.	CCAR-F D3
+Three example .claude/rules/ topic files the guide names.	testing.md, api-conventions.md, deployment.md.	CCAR-F D3
+Two triggers that mean 'plan mode'.	Architectural decisions, and multiple valid approaches. (Also: large-scale/multi-file change.)	CCAR-F D3
+Why does the Explore subagent help during planning?	It isolates verbose discovery output and returns a summary, preventing context exhaustion in multi-phase tasks.	CCAR-F D3
+What does -p stand for?	--print — non-interactive mode.	CCAR-F D3
+DOCS DRIFT: what does the '@import syntax' actually look like?	A line starting with @ and a path: @./standards/testing.md or @README. The guide calls it '@import syntax'; the docs call it @path. Relative paths resolve from the importing file; /context shows what loaded.	CCAR-F D3
+[Code Gen] Team wants a shared /review command. Where?	.claude/commands/review.md in the project repo.	CCAR-F D3
+Team skill is too aggressive for your taste. Correct action?	Copy it to ~/.claude/skills/ under a different name and edit that. Don't modify the shared one.	CCAR-F D3
+State the plan-mode rule as a heuristic.	If a wrong first move would be expensive to undo, plan first.	CCAR-F D3
+Complete: the SKILL.md frontmatter key that isolates output is ___	context: fork	CCAR-F D3
+Complete: the CI non-interactive flag is ___	-p (or --print).	CCAR-F D3
+Do 'be conservative' and 'only report high-confidence findings' improve precision?	No. The guide says general instructions like these fail compared to specific categorical criteria.	CCAR-F D4
+What is few-shot prompting best at?	Consistently formatted, actionable output when detailed instructions alone produce inconsistent results.	CCAR-F D4
+How many few-shot examples does the guide recommend for ambiguous scenarios?	2–4 targeted examples.	CCAR-F D4
+How do few-shot examples reduce false positives?	By demonstrating acceptable code patterns alongside genuine issues, so the model learns the boundary.	CCAR-F D4
+Which output format details should few-shot examples demonstrate for reviews?	Location, issue, severity, suggested fix — the full shape you want every finding to have.	CCAR-F D4
+You must guarantee extract_metadata runs before enrichment. Which tool_choice?	Forced: {"type":"tool","name":"extract_metadata"} — then process subsequent steps in follow-up turns.	CCAR-F D4
+When are retries guaranteed ineffective?	When the required information is simply absent from the source document. Retries fix format and structural errors, not missing data.	CCAR-F D4
+When is batch processing appropriate?	Non-blocking, latency-tolerant workloads: overnight reports, weekly audits, nightly test generation.	CCAR-F D4
+Key limitation of the batch API regarding tools?	It does not support multi-turn tool calling within a single request — you can't execute tools mid-request and return results.	CCAR-F D4
+Why refine your prompt on a sample before batching 100k documents?	To maximise first-pass success and avoid expensive iterative resubmission.	CCAR-F D4
+What beats self-review instructions and extended thinking?	An independent review instance with no prior reasoning context.	CCAR-F D4
+Why won't a bigger context window fix that 14-file review?	The problem is attention dilution, not capacity. Larger windows don't improve attention quality.	CCAR-F D4
+Why is 'run 3 passes, keep issues appearing in 2+' wrong?	It suppresses real bugs — genuine issues may only be caught intermittently, so consensus filtering deletes them.	CCAR-F D4
+Which two issue types should reviews report?	Bugs and security issues. Skip minor style and local patterns.	CCAR-F D4
+Few-shot count for ambiguous scenarios?	2–4 targeted examples.	CCAR-F D4
+[CI] Reviews are 60% false positives. Fix?	Explicit categorical review criteria plus few-shot examples distinguishing acceptable patterns from genuine issues. Temporarily disable the worst category.	CCAR-F D4
+Why do few-shot examples beat more instructions for format consistency?	They demonstrate the target rather than describing it, removing interpretation.	CCAR-F D4
+State the criteria rule as a heuristic.	Replace every adjective with a rule that has a yes/no answer computable from the input.	CCAR-F D4
+State the batch rule as a heuristic.	Is anyone waiting? If yes, synchronous. If no, batch.	CCAR-F D4
+Complete: batch requests are correlated by ___	custom_id.	CCAR-F D4
+Describe the 'lost in the middle' effect.	Models reliably process information at the BEGINNING and END of long inputs but may omit findings from middle sections.	CCAR-F D5
+Why is 'summarize the conversation' the wrong fix for lost details?	Summarization is lossy — it silently drops IDs, amounts and dates. That's the trap answer.	CCAR-F D5
+How do you mitigate position effects in a long aggregated input?	Put key findings summaries at the BEGINNING and organise detailed results with explicit section headers.	CCAR-F D5
+Why is sentiment-based escalation unreliable?	Sentiment doesn't correlate with case complexity. A furious customer may have a trivial issue.	CCAR-F D5
+Why are self-reported confidence scores unreliable for routing?	LLM self-reported confidence is poorly calibrated — the agent is already wrongly confident on the hard cases.	CCAR-F D5
+What should structured error context contain?	Failure type, what was attempted (the query), partial results, and potential alternative approaches.	CCAR-F D5
+What are scratchpad files for?	Persisting key findings across context boundaries, so the agent can reference them instead of relying on decayed context.	CCAR-F D5
+Which command reduces context usage during long exploration sessions?	/compact	CCAR-F D5
+Give two example subagent exploration questions.	'Find all test files' and 'trace refund flow dependencies' — narrow, answerable, verbose to compute.	CCAR-F D5
+Document analysis agent finds two conflicting values in one document. What should it return?	Both values, explicitly annotated as conflicting — let the coordinator decide how to reconcile before synthesis.	CCAR-F D5
+Agent asks three clarifying questions then escalates a customer who asked for a human upfront. What went wrong?	Explicit human requests must be honoured immediately, without investigation first.	CCAR-F D5
+Access failure vs valid empty result — why does the coordinator care?	An access failure may warrant a retry or an alternative source; a valid empty result is a real answer. Conflating them causes wrong recovery decisions.	CCAR-F D5
+Subagent hits a transient timeout. Escalate immediately?	No — attempt local recovery first. Propagate only if unresolved, with partials and what was attempted.	CCAR-F D5
+What does the coordinator load on resume after a crash?	A manifest of structured agent state exports, which it injects into agent prompts.	CCAR-F D5
+The customer gave two contradictory instructions in one conversation. What now?	Surface the conflict and ask which they want before acting — the same pattern as asking for identifiers on multiple matches. Never pick by recency or primacy for an irreversible action, and it is not a policy gap.	CCAR-F D5
+[Research] Two sources give different market-size figures. Output?	Both, annotated with source attribution and dates, in a section distinguishing contested from well-established findings.	CCAR-F D5
+Two sources disagree because they measured in different years. What prevents a false 'contradiction'?	Requiring publication/collection dates in structured outputs.	CCAR-F D5
+State the context rule as a heuristic.	Summaries decay; extracted facts don't. Pull the numbers out and re-anchor them every turn.	CCAR-F D5
+Complete: crash recovery uses structured state exports loaded from a ___	manifest.	CCAR-F D5
+Give two symptoms of miscalibrated escalation.	Easy cases escalated; hard cases attempted autonomously. Resolution rate far below target.	CCAR-F D5

@@ -1,0 +1,308 @@
+[
+ {
+  "id": "e6q27",
+  "domain": "Tool Design & MCP Integration",
+  "ts": "2.3",
+  "scenario": "Multi-Agent Research System",
+  "q": "An agent has grown from five to eighteen tools and selection reliability has fallen. Which two remedies align with the guide? (Select two.)",
+  "options": [
+   "Restrict the agent's tool set to those relevant to its role",
+   "Add few-shot examples covering all eighteen tools",
+   "Increase the model tier so it can reason over more options",
+   "Replace overly generic tools with constrained alternatives that validate their inputs"
+  ],
+  "answer": [
+   0,
+   3
+  ],
+  "explanation": "The guide names restricting each subagent's tool set to those relevant to its role, and replacing generic tools with constrained alternatives such as load_document instead of fetch_url. Exhaustive few-shot adds overhead without reducing decision complexity, and model tier is not the stated remedy."
+ },
+ {
+  "id": "e3q30",
+  "domain": "Claude Code Configuration & Workflows",
+  "ts": "3.2",
+  "scenario": "Code Generation with Claude Code",
+  "q": "Which two locations hold custom slash commands, and how do they differ? (Select two.)",
+  "options": [
+   ".claude/rules/ — path-scoped and conditionally loaded",
+   "CLAUDE.md — project-scoped and always loaded",
+   "~/.claude/commands/ — user-scoped and personal",
+   ".claude/commands/ — project-scoped and shared via version control"
+  ],
+  "answer": [
+   2,
+   3
+  ],
+  "explanation": "Commands live in .claude/commands/ for team-wide availability through version control, and ~/.claude/commands/ for personal use. CLAUDE.md holds instructions and .claude/rules/ holds path-scoped conventions; neither defines commands."
+ },
+ {
+  "id": "e3q10",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.6",
+  "scenario": "Developer Productivity with Claude",
+  "q": "Which task is best served by dynamic adaptive decomposition rather than a fixed pipeline?",
+  "options": [
+   "Running the same four-section audit on every microservice in a repo",
+   "Generating API documentation from a stable OpenAPI specification",
+   "Converting one hundred files from JavaScript to TypeScript",
+   "Investigating why an intermittent production failure occurs, where each finding changes what to check next"
+  ],
+  "answer": 3,
+  "explanation": "Dynamic adaptive decomposition suits open-ended investigation where intermediate findings should change what you do next. The other three have a fixed, content-independent shape and suit prompt chaining."
+ },
+ {
+  "id": "e4q14",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.3",
+  "scenario": "Multi-Agent Research System",
+  "q": "Which best describes fork-based session management in the context of subagent work?",
+  "options": [
+   "Isolating a skill's output from the main conversation",
+   "Exploring divergent approaches from a shared analysis baseline",
+   "Distributing one agent's workload across several processes",
+   "Persisting agent state to disk for crash recovery"
+  ],
+  "answer": 1,
+  "explanation": "Fork-based session management explores divergent approaches from a shared analysis baseline. Crash recovery uses structured state exports and manifests, and isolating skill output uses context: fork in SKILL.md frontmatter — a different mechanism with a similar name."
+ },
+ {
+  "id": "e6q08",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.5",
+  "scenario": "Multi-Agent Research System",
+  "q": "You need to both normalise inconsistent tool output formats AND block a policy-violating action. Which combination is correct?",
+  "options": [
+   "A single PostToolUse hook handling both concerns",
+   "A tool call interception hook for normalisation, and a PostToolUse hook for blocking",
+   "A PostToolUse hook for normalisation, and a tool call interception hook for blocking",
+   "A single tool call interception hook handling both concerns"
+  ],
+  "answer": 2,
+  "explanation": "PostToolUse intercepts results before the model processes them, which is where normalisation belongs. Blocking must occur before execution, which requires intercepting the outgoing call. Neither hook alone can serve both because they fire at different points."
+ },
+ {
+  "id": "e1q13",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.4",
+  "scenario": "Customer Support Resolution Agent",
+  "q": "When escalating mid-conversation to a human agent who cannot see the transcript, what should the handoff include?",
+  "options": [
+   "The full untruncated conversation transcript so nothing is lost",
+   "Customer ID, root cause analysis, refund amount, and recommended action",
+   "A link to the agent's session so the human can resume it directly",
+   "A confidence score explaining why the agent could not resolve the case"
+  ],
+  "answer": 1,
+  "explanation": "The guide specifies compiling structured handoff summaries containing customer ID, root cause, refund amount and recommended action, precisely because the human lacks transcript access. A raw transcript shifts the analysis burden onto the human. A self-reported confidence score gives the human none of the case facts they need to act on. Note that the guide objects to self-reported confidence as an automatic escalation trigger (task statement 5.2), which is a different thing from field-level confidence calibrated against a labelled validation set to route review attention (task statement 5.5). Session resumption is not the described pattern."
+ },
+ {
+  "id": "e4q15",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.5",
+  "scenario": "Customer Support Resolution Agent",
+  "q": "Which scenario is the weakest justification for a hook?",
+  "options": [
+   "Ensuring agent replies consistently use British rather than American spelling",
+   "Blocking any refund above the policy threshold",
+   "Guaranteeing identity verification precedes financial operations",
+   "Normalising inconsistent data formats returned by three different backends"
+  ],
+  "answer": 0,
+  "explanation": "Hooks are for deterministic guarantees where business rules demand compliance, or for reliable data transformation. Spelling preference carries no material consequence when occasionally missed and is well served by prompt guidance."
+ },
+ {
+  "id": "e6q09",
+  "domain": "Agentic Architecture & Orchestration",
+  "ts": "1.6",
+  "scenario": "Claude Code for Continuous Integration",
+  "q": "Which pairing of task to decomposition strategy is correct in both cases?",
+  "options": [
+   "Both → prompt chaining, since predictability aids CI",
+   "Fixed four-aspect PR review → prompt chaining; open-ended production incident investigation → dynamic adaptive decomposition",
+   "Fixed four-aspect PR review → dynamic adaptive decomposition; open-ended incident investigation → prompt chaining",
+   "Both → dynamic adaptive decomposition, since real inputs always vary"
+  ],
+  "answer": 1,
+  "explanation": "Prompt chaining suits predictable multi-aspect reviews where the shape of the work is fixed regardless of content. Dynamic adaptive decomposition suits open-ended investigation where intermediate findings should change what happens next."
+ },
+ {
+  "id": "e4q19",
+  "domain": "Tool Design & MCP Integration",
+  "ts": "2.2",
+  "scenario": "Multi-Agent Research System",
+  "q": "Which distinction does the guide say prevents wasted retry attempts?",
+  "options": [
+   "Returning a stack trace so the agent can diagnose the cause",
+   "Returning structured metadata that separates retryable from non-retryable errors",
+   "Returning HTTP status codes rather than prose messages",
+   "Returning errors asynchronously so the agent can continue"
+  ],
+  "answer": 1,
+  "explanation": "The guide names the difference between retryable and non-retryable errors, and how returning structured metadata prevents wasted retry attempts. Status codes and stack traces still require interpretation, and asynchronous delivery does not address retry decisions."
+ },
+ {
+  "id": "e1q20",
+  "domain": "Tool Design & MCP Integration",
+  "ts": "2.2",
+  "scenario": "Customer Support Resolution Agent",
+  "q": "A refund is refused because it violates a policy limit. Which error shape lets the agent respond appropriately without wasting retries?",
+  "options": [
+   "isError true, errorCategory 'transient', isRetryable true, with a retry_after hint",
+   "A plain exception message containing the policy text for the model to parse",
+   "An empty successful result so the agent moves on to alternative resolutions",
+   "isError true, errorCategory 'business', isRetryable false, plus a customer-friendly explanation"
+  ],
+  "answer": 3,
+  "explanation": "A policy violation is a business error that will not succeed on retry however many times it is attempted, so isRetryable must be false, and a customer-friendly explanation lets the agent communicate the outcome. Marking it transient invites pointless retries. A raw exception forces parsing. Returning empty-as-success is the suppression anti-pattern."
+ },
+ {
+  "id": "e3q26",
+  "domain": "Tool Design & MCP Integration",
+  "ts": "2.5",
+  "scenario": "Developer Productivity with Claude",
+  "q": "An Edit call fails because the anchor text appears in six places. What is the documented fallback?",
+  "options": [
+   "Use Glob to locate a file where the anchor is unique",
+   "Call Edit repeatedly until all six are updated",
+   "Delete the file and Write a fresh version from memory",
+   "Read the file, then Write it back with the change applied"
+  ],
+  "answer": 3,
+  "explanation": "The guide names using Read to load full file contents followed by Write when Edit cannot find unique anchor text. Repeating a failing Edit does not resolve non-uniqueness, and rewriting from memory risks losing content."
+ },
+ {
+  "id": "e2q29",
+  "domain": "Claude Code Configuration & Workflows",
+  "ts": "3.1",
+  "scenario": "Claude Code for Continuous Integration",
+  "q": "A monorepo has packages with genuinely different standards, and each package maintainer knows their own domain. Which mechanism keeps CLAUDE.md modular while letting maintainers own their rules?",
+  "options": [
+   "@import syntax referencing the specific standards files relevant to each package",
+   "A user-level CLAUDE.md per maintainer describing their own package",
+   "One root CLAUDE.md listing every package's standards under headings",
+   "Duplicating the full standards file into every package directory"
+  ],
+  "answer": 0,
+  "explanation": "The guide names using @import to selectively include relevant standards files in each package's CLAUDE.md based on maintainer domain knowledge. A single root file becomes a monolith. User-level files are not shared. Duplication creates drift."
+ },
+ {
+  "id": "e3q37",
+  "domain": "Claude Code Configuration & Workflows",
+  "ts": "3.6",
+  "scenario": "Claude Code for Continuous Integration",
+  "q": "Your automated review re-reports the same issues on every push, even after they are fixed. What is the recommended fix?",
+  "options": [
+   "Cache the previous run's output and diff it before posting comments",
+   "Reduce review frequency to once per pull request rather than per push",
+   "Only review files changed since the last successful run",
+   "Give the run the findings from the review before it, and tell it to report only what is new or still unaddressed"
+  ],
+  "answer": 3,
+  "explanation": "The guide names including prior review findings in context when re-running reviews after new commits, instructing Claude to report only new or still-unaddressed issues. Client-side diffing and file filtering do not give the model the awareness to judge whether an issue was addressed."
+ },
+ {
+  "id": "e4q39",
+  "domain": "Claude Code Configuration & Workflows",
+  "ts": "3.5",
+  "scenario": "Code Generation with Claude Code",
+  "q": "Your migration script mishandles null values. Which correction does the guide describe as most effective?",
+  "options": [
+   "Describe the null-handling policy in more precise prose",
+   "Ask the model to add defensive null checks throughout",
+   "Add the null case to CLAUDE.md as a standing rule",
+   "Provide a specific test case with example input containing nulls and the expected output"
+  ],
+  "answer": 3,
+  "explanation": "The guide names providing specific test cases with example input and expected output to fix edge case handling, giving null values in migration scripts as the example. Prose remains interpretable, blanket defensiveness is unfocused, and a standing rule is disproportionate to one edge case."
+ },
+ {
+  "id": "e2q50",
+  "domain": "Prompt Engineering & Structured Output",
+  "ts": "4.5",
+  "scenario": "Structured Data Extraction",
+  "q": "Before submitting 50,000 documents to the batch API, what does the guide recommend?",
+  "options": [
+   "Split the submission into batches of exactly 100 for reliability",
+   "Pre-validate every document against the schema before submission",
+   "Run the first 5,000 synchronously to warm the model's behaviour",
+   "Refine the prompt on a sample set to maximise first-pass success and reduce resubmission costs"
+  ],
+  "answer": 3,
+  "explanation": "The guide names using prompt refinement on a sample set before batch-processing large volumes to maximise first-pass success rates and reduce iterative resubmission costs. Fixed batch sizes, warm-up runs and pre-validating documents against an output schema are not the described practice."
+ },
+ {
+  "id": "e3q40",
+  "domain": "Prompt Engineering & Structured Output",
+  "ts": "4.1",
+  "scenario": "Claude Code for Continuous Integration",
+  "q": "Why does the guide say high false positive rates in one category are especially damaging?",
+  "options": [
+   "They cause the model to overfit to that category over time",
+   "They undermine developer confidence in the accurate categories too",
+   "They increase API costs disproportionately",
+   "They delay the pipeline beyond acceptable build times"
+  ],
+  "answer": 1,
+  "explanation": "The guide states that high false positive categories undermine confidence in accurate categories — trust in the review as a whole collapses. Cost, overfitting and build time are not the stated concern."
+ },
+ {
+  "id": "e3q51",
+  "domain": "Prompt Engineering & Structured Output",
+  "ts": "4.6",
+  "scenario": "Claude Code for Continuous Integration",
+  "q": "Your per-file review passes are working well — findings are consistent and specific — but the pipeline keeps missing bugs where one file's change breaks an assumption another file relies on. How should you extend the architecture?",
+  "options": [
+   "Ask the session that produced the per-file findings to re-read them and infer the cross-file effects",
+   "Re-check only the files whose per-file pass returned the highest-severity findings",
+   "Add a separate integration pass over the full change set, run after the per-file passes and focused on cross-file data flow",
+   "Have each per-file pass also load every file that file imports, so cross-file context is present throughout"
+  ],
+  "answer": 2,
+  "explanation": "The guide pairs per-file local analysis with a separate integration pass examining cross-file data flow. The per-file passes are already doing their job here; what is missing is the pass that looks across them. Loading every imported file into each per-file pass puts most of the change set back in front of every pass, which is the attention dilution the split existed to prevent. Asking the same session to infer the cross-file effects runs into the self-review limitation the guide describes: it retains the reasoning that produced those findings and is less likely to question them. Severity ranking decides what to look at again; it does not examine the relationships between files."
+ },
+ {
+  "id": "e5q43",
+  "domain": "Prompt Engineering & Structured Output",
+  "ts": "4.3",
+  "scenario": "Structured Data Extraction",
+  "q": "An engineer believes that because their schema is strict, extracted invoices cannot contain incorrect totals. What is the error in this reasoning?",
+  "options": [
+   "Strict schemas are only enforced when tool_choice is forced",
+   "Strict schemas eliminate syntax errors but not semantic errors, such as line items that do not sum to the stated total",
+   "Strict mode applies to input parameters, not to extracted values",
+   "Schema validation runs after the response is parsed, so it cannot reject values"
+  ],
+  "answer": 1,
+  "explanation": "The guide states directly that strict JSON schemas via tool use eliminate syntax errors but do not prevent semantic errors, giving line items that do not sum to the total as the example. Correct shape is not correct content."
+ },
+ {
+  "id": "e6q60",
+  "domain": "Context Management & Reliability",
+  "ts": "5.6",
+  "scenario": "Multi-Agent Research System",
+  "q": "Each subagent in a research pipeline returns its findings with source URLs attached. The pipeline summarises each subagent's output before synthesis, and the final report states claims without saying which source supports them. Where was the attribution lost?",
+  "options": [
+   "At the summarisation step, which compressed the findings without carrying the claim-to-source mapping through",
+   "In the report template, which has no field for citations",
+   "At synthesis, which merged findings from subagents using different citation formats",
+   "At collection, because the subagents were never asked to record their sources"
+  ],
+  "answer": 0,
+  "explanation": "Task statement 5.6 names summarisation as where source attribution is lost: findings are compressed and the claim-source mapping is not among what survives, so synthesis receives claims with nothing attached to them. The remedy in the same task statement is structured claim-source mappings that every downstream step preserves and merges. Synthesis cannot restore a mapping it never received, differing citation formats would be a merge problem rather than a loss, and a missing template field would show as citations omitted from the report rather than claims whose sources are gone."
+ },
+ {
+  "id": "e3q60",
+  "domain": "Context Management & Reliability",
+  "ts": "5.6",
+  "scenario": "Structured Data Extraction",
+  "q": "During analysis a document is found to contain two conflicting values for the same figure. What should the document analysis agent return?",
+  "options": [
+   "A null value with an error flag, since the document is unreliable",
+   "The value appearing later in the document, as it likely supersedes the earlier",
+   "A single reconciled value with the reasoning recorded internally",
+   "Both values, explicitly annotated as conflicting, letting the coordinator decide how to reconcile"
+  ],
+  "answer": 3,
+  "explanation": "The guide names completing document analysis with conflicting values included and explicitly annotated, letting the coordinator decide how to reconcile before passing to synthesis. Silent selection, nulling the field, or hidden reconciliation all destroy information the coordinator needs."
+ }
+]

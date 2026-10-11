@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CCAR-F (CCA-F) Practice Exam — Claude Certified Architect Foundations: free 20-question mock with explanations, unofficial</title>
+<meta name="description" content="Free 20-question practice test for the Claude Certified Architect – Foundations exam (CCAR-F, formerly CCA-F). Multiple-response items, every option explained, scored per domain. Not affiliated with Anthropic.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="CCAR-F (CCA-F) Practice Exam — Claude Certified Architect Foundations: free 20-question mock with explanations, unofficial">
+<meta property="og:description" content="Free 20-question practice test for the Claude Certified Architect – Foundations exam (CCAR-F, formerly CCA-F). Multiple-response items, every option explained, scored per domain. Not affiliated with Anthropic.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does the Claude Certified Architect – Foundations exam cost?", "acceptedAnswer": {"@type": "Answer", "text": "$125 USD since 30 June 2026 (it was $99). Select, Preferred and Global Premier partners get 50% off; Global Premier partners pay nothing through 31 December 2026. Retakes cost the full fee."}}, {"@type": "Question", "name": "How do I register for CCAR-F?", "acceptedAnswer": {"@type": "Answer", "text": "Through the Anthropic Partner Academy, then Pearson VUE (online proctored or a test centre). Registration needs a company email at a Claude Partner Network organisation."}}, {"@type": "Question", "name": "Is the Claude Certified Architect exam free?", "acceptedAnswer": {"@type": "Answer", "text": "No. The first 5,000 partner employees at launch sat it free; since then it is $125, with partner-tier discounts."}}, {"@type": "Question", "name": "Can I take the exam without working for a partner?", "acceptedAnswer": {"@type": "Answer", "text": "Not as of September 2026. Registration requires a partner email domain; personal addresses are rejected. No public date has been announced."}}, {"@type": "Question", "name": "How many questions are on the exam, and how long is it?", "acceptedAnswer": {"@type": "Answer", "text": "60 items in 120 minutes, drawn from 4 of 6 scenarios. Items are multiple-choice and multiple-response; each item says how many answers to select."}}, {"@type": "Question", "name": "Where is the official exam guide PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Linked from the Partner Academy certification FAQ page; version 1.0, effective July 2026, 39 pages. Versions 0.1 and 0.2 differ only in formatting."}}, {"@type": "Question", "name": "What does a scaled score of 720 mean?", "acceptedAnswer": {"@type": "Answer", "text": "Scores are reported on a 100 to 1,000 scale and equated across exam forms of different difficulty, so 720 is not \"72% correct\" and cannot be converted to a number of questions you may miss. Your score report shows percent-correct per domain, but only the total decides pass or fail."}}, {"@type": "Question", "name": "How long is the certification valid, and how do I renew?", "acceptedAnswer": {"@type": "Answer", "text": "12 months. If you renew on time you take a free, non-proctored assessment on the Partner Academy; if it lapses you sit the full exam again at full price."}}]}</script>
+<style>
+:root{
+  --ink:#0e1626; --ink2:#15223a; --rule:rgba(147,197,253,.16);
+  --fg:#e8edf5; --dim:#93a4bd; --amber:#fbbf24; --amber2:#f59e0b;
+  --blue:#93c5fd; --paper:#eef1f6; --pink:#16202e; --prule:#d3dae6;
+  --ok:#1a7f37; --bad:#c3392b;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --wrap:44rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--fg);font:17px/1.65 var(--sans);
+  font-variant-numeric:tabular-nums}
+.w{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+section{padding-block:clamp(40px,7vw,72px);border-top:1px solid var(--rule)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.2}
+h2{font-size:clamp(24px,4.2vw,31px);margin:0 0 6px}
+h3{font-size:18px;margin:0 0 4px}
+p{margin:0 0 14px;max-width:64ch}
+a{color:var(--blue)}
+.lede{color:var(--dim)}
+.small{font-size:14.5px;color:var(--dim)}
+
+/* ---- hero: the scaled-score ruler ---- */
+header{padding-block:clamp(36px,6vw,64px) clamp(34px,5vw,56px)}
+.id{font-size:13.5px;color:var(--dim);margin:0 0 22px;letter-spacing:.02em}
+h1{font-size:clamp(34px,7.6vw,58px);margin:0 0 10px}
+h1 .sub{display:block;font-size:clamp(15px,2.6vw,19px);color:var(--dim);
+  font-family:var(--sans);letter-spacing:0;margin-top:14px;line-height:1.5;max-width:52ch}
+.scale{margin:60px 0 26px;padding:0}
+.bar{position:relative;height:12px;border-radius:6px;
+  background:linear-gradient(90deg,#22304d,#38598c)}
+.tick{position:absolute;top:-9px;bottom:-9px;width:3px;background:var(--amber);
+  border-radius:2px;left:68.9%}
+@media (prefers-reduced-motion:no-preference){
+  .tick{animation:slide .9s cubic-bezier(.22,.9,.3,1) both}
+  @keyframes slide{from{left:0;opacity:0}to{left:68.9%;opacity:1}}
+}
+.ends{display:flex;justify-content:space-between;font-size:13.5px;color:var(--dim);
+  margin-top:11px}
+.flag{position:absolute;left:68.9%;top:-34px;transform:translateX(-50%);
+  color:var(--amber);font:600 14.5px/1 var(--sans);white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){
+  .flag{animation:slide .9s cubic-bezier(.22,.9,.3,1) both}
+}
+.note{border-left:2px solid var(--amber2);padding-left:16px;color:var(--dim);
+  font-size:15.5px;max-width:58ch}
+.cta{display:inline-block;margin-top:24px;background:var(--amber);color:#221803;
+  font:600 16px/1 var(--sans);padding:14px 22px;border-radius:7px;text-decoration:none}
+.cta:hover{background:#fcc93f}
+
+/* ---- facts ---- */
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:10px 0;border-bottom:1px solid var(--rule);
+  vertical-align:baseline}
+th{font-weight:400;color:var(--dim);width:38%;padding-right:18px}
+.stamp{font-size:14px;color:var(--dim);margin-bottom:18px}
+
+/* ---- domains ---- */
+ul.dom{list-style:none;margin:22px 0 0;padding:0}
+ul.dom li{display:grid;grid-template-columns:1fr 78px 68px;gap:6px 14px;
+  align-items:center;padding:11px 0;border-bottom:1px solid var(--rule)}
+.dl{font-size:15.5px}
+.db{grid-column:1/-1;order:4;height:6px;border-radius:3px;background:#1d2b45}
+.dbf{display:block;height:100%;border-radius:3px;background:var(--blue);opacity:.75}
+.dw{text-align:right;font-weight:600}
+.dn{text-align:right;font-size:14px;color:var(--dim)}
+ol.scen{margin:18px 0 0;padding-left:22px}
+ol.scen li{padding:5px 0}
+
+/* ---- the mock, on paper ---- */
+.paper{background:var(--paper);color:var(--pink);border-top:none}
+.paper h2,.paper h3{color:var(--pink)}
+.paper p{color:#31415a}
+.paper .lede{color:#4a5a73}
+ol.qs{list-style:none;margin:30px 0 0;padding:0;counter-reset:q}
+.q{padding:24px 0;border-top:1px solid var(--prule)}
+.qn{display:flex;gap:12px;align-items:baseline;margin:0 0 8px;font-size:13.5px}
+.num{font:600 13.5px/1 var(--sans);color:#6b7b95}
+.dom{color:#6b7b95}
+.qt{font-size:17px;color:var(--pink)!important;margin:0 0 14px;font-weight:500}
+.pick{color:var(--bad);font-weight:600}
+ul.opts{list-style:none;margin:0 0 16px;padding:0}
+ul.opts li{margin:0 0 8px}
+ul.opts label{display:flex;gap:11px;align-items:flex-start;padding:11px 13px;
+  border:1px solid var(--prule);border-radius:7px;cursor:pointer;background:#fff}
+ul.opts label:hover{border-color:#9fb0c9}
+ul.opts input{margin:3px 0 0;flex:none;accent-color:#2f5fa8}
+ul.opts span{font-size:15.5px}
+li.done label{cursor:default}
+li.done .right{border-color:var(--ok);background:#eaf6ec}
+li.done .wrong{border-color:var(--bad);background:#fbeceb}
+button{font:600 15px/1 var(--sans);padding:11px 18px;border-radius:7px;
+  border:1px solid #2f5fa8;background:#2f5fa8;color:#fff;cursor:pointer}
+button:hover{background:#26518f}
+button[disabled]{opacity:.45;cursor:default}
+.why{margin-top:14px;border-left:2px solid #9fb0c9;padding-left:15px}
+.why p{font-size:15.5px;margin:0 0 8px}
+.verdict{font-weight:600}
+.verdict.y{color:var(--ok)} .verdict.n{color:var(--bad)}
+.ts{font-size:13.5px;color:#6b7b95!important}
+#score{margin-top:32px;padding:24px;background:#fff;border:1px solid var(--prule);
+  border-radius:10px}
+#score table{font-size:15px;margin-top:10px}
+#score th,#score td{border-bottom:1px solid var(--prule);color:var(--pink)}
+#score th{color:#6b7b95}
+.total{font:400 34px/1 var(--serif)}
+.buys{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.buy{flex:1 1 15rem;display:block;padding:16px 18px;border-radius:9px;
+  text-decoration:none;border:1px solid var(--prule);background:#fff;color:var(--pink)}
+.buy b{display:block;font-size:16px;margin-bottom:3px}
+.buy span{font-size:14px;color:#5c6b84}
+.buy.first{background:#132038;border-color:#132038;color:#fff}
+.buy.first span{color:#a9bcd8}
+
+/* ---- faq + footer ---- */
+.fq{padding:16px 0;border-bottom:1px solid var(--rule)}
+.fq p{margin:0;color:var(--dim);font-size:15.5px}
+footer{padding-block:40px 56px;border-top:1px solid var(--rule)}
+footer p{font-size:13.5px;color:var(--dim);line-height:1.6;max-width:72ch}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media (max-width:600px){
+  ul.dom li{grid-template-columns:1fr 62px}
+  .dn{grid-column:2;text-align:right}
+  .buys{flex-direction:column}
+}
+</style>
+</head><body>
+
+<header class="w">
+  <p class="id">CCAR-F · CCA-F · unofficial practice material</p>
+  <h1>720 is not 72%.
+    <span class="sub">That single mistake is repeated across most study material for the
+    Claude Certified Architect – Foundations exam. Here is a free 20-question mock
+    written from the guide that says otherwise.</span></h1>
+
+  <div class="scale">
+    <div class="bar"><span class="flag">720 to pass</span><span class="tick"></span></div>
+    <div class="ends"><span>100</span><span>1,000</span></div>
+  </div>
+
+  <p class="note">CCAR-F is scored on a scaled 100–1,000 range, equated across exam forms
+  of different difficulty. A harder form needs fewer raw correct answers to reach 720; an
+  easier one needs more. So 720 cannot be converted into “how many questions I may miss”,
+  and anyone telling you it means 72% is guessing.</p>
+
+  <a class="cta" href="#mock">Take the 20-question mock</a>
+</header>
+
+<section class="w">
+  <h2>Exam facts</h2>
+  <p class="stamp">Source: exam guide v1.0, July 2026. Facts decay —
+    <a href="https://www.anthropic.com/certification">check the current guide</a> before you book.</p>
+  <table><tbody>
+<tr><th scope="row">Exam code</th><td><b>CCAR-F</b> — earlier material says CCA-F; same exam</td></tr>
+<tr><th scope="row">Items and time</th><td>60 items, 120 minutes</td></tr>
+<tr><th scope="row">Format</th><td>Multiple-choice <b>and multiple-response</b>; each item states how many to select</td></tr>
+<tr><th scope="row">Structure</th><td>4 scenarios drawn at random from a bank of 6</td></tr>
+<tr><th scope="row">Passing</th><td>Scaled score <b>720</b> on a 100–1,000 scale</td></tr>
+<tr><th scope="row">Score report</th><td>Percent correct per domain, but only the total scaled score decides</td></tr>
+<tr><th scope="row">Fee</th><td>$125 USD, since 30 June 2026</td></tr>
+<tr><th scope="row">Delivery</th><td><a href="https://www.pearsonvue.com/anthropic">Pearson VUE</a>, proctored online or at a test centre</td></tr>
+<tr><th scope="row">Eligibility</th><td>Claude Partner Network organisations only; company email required</td></tr>
+<tr><th scope="row">Validity</th><td>12 months; free non-proctored renewal if taken on time</td></tr>
+<tr><th scope="row">Retakes</th><td>14 / 30 / 90-day waits; maximum 4 attempts per rolling 12 months</td></tr>
+<tr><th scope="row">Reschedule</th><td>Up to 24 hours before the appointment; later forfeits the fee</td></tr>
+<tr><th scope="row">Official practice exam</th><td>Retired 30 June 2026; the guide's 12 sample questions remain</td></tr>
+  </tbody></table>
+</section>
+
+<section class="w">
+  <h2>The five domains and their weights</h2>
+  <p class="lede">Every question in the mock below is tagged to one of these.</p>
+  <ul class="dom">
+<li><span class="dl">Agentic Architecture &amp; Orchestration</span><span class="db"><span class="dbf" style="width:100%"></span></span><span class="dw">27%</span><span class="dn">~16 items</span></li>
+<li><span class="dl">Tool Design &amp; MCP Integration</span><span class="db"><span class="dbf" style="width:66%"></span></span><span class="dw">18%</span><span class="dn">~11 items</span></li>
+<li><span class="dl">Claude Code Configuration &amp; Workflows</span><span class="db"><span class="dbf" style="width:74%"></span></span><span class="dw">20%</span><span class="dn">~12 items</span></li>
+<li><span class="dl">Prompt Engineering &amp; Structured Output</span><span class="db"><span class="dbf" style="width:74%"></span></span><span class="dw">20%</span><span class="dn">~12 items</span></li>
+<li><span class="dl">Context Management &amp; Reliability</span><span class="db"><span class="dbf" style="width:55%"></span></span><span class="dw">15%</span><span class="dn">~9 items</span></li>
+  </ul>
+</section>
+
+<section class="w">
+  <h2>The six scenarios</h2>
+  <p class="lede">Your exam draws four of these six, at random.</p>
+  <ol class="scen">
+<li>Customer Support Resolution Agent</li>
+<li>Code Generation with Claude Code</li>
+<li>Multi-Agent Research System</li>
+<li>Developer Productivity with Claude</li>
+<li>Claude Code for Continuous Integration</li>
+<li>Structured Data Extraction</li>
+  </ol>
+</section>
+
+<section class="paper" id="mock">
+ <div class="w">
+  <h2>The mock: 20 questions</h2>
+  <p class="lede">Weighted like the real blueprint. Two items are multiple-response, as on the
+  exam. No signup, nothing stored, nothing sent anywhere. Check each answer as you go, then
+  score yourself at the end.</p>
+
+  <ol class="qs">
+<li class="q" id="q1" data-i="0">
+<p class="qn"><span class="num">1</span><span class="dom">Tool Design &amp; MCP Integration</span></p>
+<p class="qt">An agent has grown from five to eighteen tools and selection reliability has fallen. Which two remedies align with the guide? (Select two.)</p>
+<ul class="opts"><li><label><input type="checkbox" name="q0" value="0"><span>Restrict the agent&#x27;s tool set to those relevant to its role</span></label></li>
+<li><label><input type="checkbox" name="q0" value="1"><span>Add few-shot examples covering all eighteen tools</span></label></li>
+<li><label><input type="checkbox" name="q0" value="2"><span>Increase the model tier so it can reason over more options</span></label></li>
+<li><label><input type="checkbox" name="q0" value="3"><span>Replace overly generic tools with constrained alternatives that validate their inputs</span></label></li></ul>
+<button class="check" type="button" data-i="0">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names restricting each subagent&#x27;s tool set to those relevant to its role, and replacing generic tools with constrained alternatives such as load_document instead of fetch_url. Exhaustive few-shot adds overhead without reducing decision complexity, and model tier is not the stated remedy.</p>
+<p class="ts">Exam guide task statement 2.3 · scenario: Multi-Agent Research System</p></div>
+</li>
+<li class="q" id="q2" data-i="1">
+<p class="qn"><span class="num">2</span><span class="dom">Claude Code Configuration &amp; Workflows</span></p>
+<p class="qt">Which two locations hold custom slash commands, and how do they differ? (Select two.)</p>
+<ul class="opts"><li><label><input type="checkbox" name="q1" value="0"><span>.claude/rules/ — path-scoped and conditionally loaded</span></label></li>
+<li><label><input type="checkbox" name="q1" value="1"><span>CLAUDE.md — project-scoped and always loaded</span></label></li>
+<li><label><input type="checkbox" name="q1" value="2"><span>~/.claude/commands/ — user-scoped and personal</span></label></li>
+<li><label><input type="checkbox" name="q1" value="3"><span>.claude/commands/ — project-scoped and shared via version control</span></label></li></ul>
+<button class="check" type="button" data-i="1">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Commands live in .claude/commands/ for team-wide availability through version control, and ~/.claude/commands/ for personal use. CLAUDE.md holds instructions and .claude/rules/ holds path-scoped conventions; neither defines commands.</p>
+<p class="ts">Exam guide task statement 3.2 · scenario: Code Generation with Claude Code</p></div>
+</li>
+<li class="q" id="q3" data-i="2">
+<p class="qn"><span class="num">3</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">Which task is best served by dynamic adaptive decomposition rather than a fixed pipeline?</p>
+<ul class="opts"><li><label><input type="radio" name="q2" value="0"><span>Running the same four-section audit on every microservice in a repo</span></label></li>
+<li><label><input type="radio" name="q2" value="1"><span>Generating API documentation from a stable OpenAPI specification</span></label></li>
+<li><label><input type="radio" name="q2" value="2"><span>Converting one hundred files from JavaScript to TypeScript</span></label></li>
+<li><label><input type="radio" name="q2" value="3"><span>Investigating why an intermittent production failure occurs, where each finding changes what to check next</span></label></li></ul>
+<button class="check" type="button" data-i="2">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Dynamic adaptive decomposition suits open-ended investigation where intermediate findings should change what you do next. The other three have a fixed, content-independent shape and suit prompt chaining.</p>
+<p class="ts">Exam guide task statement 1.6 · scenario: Developer Productivity with Claude</p></div>
+</li>
+<li class="q" id="q4" data-i="3">
+<p class="qn"><span class="num">4</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">Which best describes fork-based session management in the context of subagent work?</p>
+<ul class="opts"><li><label><input type="radio" name="q3" value="0"><span>Isolating a skill&#x27;s output from the main conversation</span></label></li>
+<li><label><input type="radio" name="q3" value="1"><span>Exploring divergent approaches from a shared analysis baseline</span></label></li>
+<li><label><input type="radio" name="q3" value="2"><span>Distributing one agent&#x27;s workload across several processes</span></label></li>
+<li><label><input type="radio" name="q3" value="3"><span>Persisting agent state to disk for crash recovery</span></label></li></ul>
+<button class="check" type="button" data-i="3">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Fork-based session management explores divergent approaches from a shared analysis baseline. Crash recovery uses structured state exports and manifests, and isolating skill output uses context: fork in SKILL.md frontmatter — a different mechanism with a similar name.</p>
+<p class="ts">Exam guide task statement 1.3 · scenario: Multi-Agent Research System</p></div>
+</li>
+<li class="q" id="q5" data-i="4">
+<p class="qn"><span class="num">5</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">You need to both normalise inconsistent tool output formats AND block a policy-violating action. Which combination is correct?</p>
+<ul class="opts"><li><label><input type="radio" name="q4" value="0"><span>A single PostToolUse hook handling both concerns</span></label></li>
+<li><label><input type="radio" name="q4" value="1"><span>A tool call interception hook for normalisation, and a PostToolUse hook for blocking</span></label></li>
+<li><label><input type="radio" name="q4" value="2"><span>A PostToolUse hook for normalisation, and a tool call interception hook for blocking</span></label></li>
+<li><label><input type="radio" name="q4" value="3"><span>A single tool call interception hook handling both concerns</span></label></li></ul>
+<button class="check" type="button" data-i="4">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>PostToolUse intercepts results before the model processes them, which is where normalisation belongs. Blocking must occur before execution, which requires intercepting the outgoing call. Neither hook alone can serve both because they fire at different points.</p>
+<p class="ts">Exam guide task statement 1.5 · scenario: Multi-Agent Research System</p></div>
+</li>
+<li class="q" id="q6" data-i="5">
+<p class="qn"><span class="num">6</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">When escalating mid-conversation to a human agent who cannot see the transcript, what should the handoff include?</p>
+<ul class="opts"><li><label><input type="radio" name="q5" value="0"><span>The full untruncated conversation transcript so nothing is lost</span></label></li>
+<li><label><input type="radio" name="q5" value="1"><span>Customer ID, root cause analysis, refund amount, and recommended action</span></label></li>
+<li><label><input type="radio" name="q5" value="2"><span>A link to the agent&#x27;s session so the human can resume it directly</span></label></li>
+<li><label><input type="radio" name="q5" value="3"><span>A confidence score explaining why the agent could not resolve the case</span></label></li></ul>
+<button class="check" type="button" data-i="5">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide specifies compiling structured handoff summaries containing customer ID, root cause, refund amount and recommended action, precisely because the human lacks transcript access. A raw transcript shifts the analysis burden onto the human. A self-reported confidence score gives the human none of the case facts they need to act on. Note that the guide objects to self-reported confidence as an automatic escalation trigger (task statement 5.2), which is a different thing from field-level confidence calibrated against a labelled validation set to route review attention (task statement 5.5). Session resumption is not the described pattern.</p>
+<p class="ts">Exam guide task statement 1.4 · scenario: Customer Support Resolution Agent</p></div>
+</li>
+<li class="q" id="q7" data-i="6">
+<p class="qn"><span class="num">7</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">Which scenario is the weakest justification for a hook?</p>
+<ul class="opts"><li><label><input type="radio" name="q6" value="0"><span>Ensuring agent replies consistently use British rather than American spelling</span></label></li>
+<li><label><input type="radio" name="q6" value="1"><span>Blocking any refund above the policy threshold</span></label></li>
+<li><label><input type="radio" name="q6" value="2"><span>Guaranteeing identity verification precedes financial operations</span></label></li>
+<li><label><input type="radio" name="q6" value="3"><span>Normalising inconsistent data formats returned by three different backends</span></label></li></ul>
+<button class="check" type="button" data-i="6">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Hooks are for deterministic guarantees where business rules demand compliance, or for reliable data transformation. Spelling preference carries no material consequence when occasionally missed and is well served by prompt guidance.</p>
+<p class="ts">Exam guide task statement 1.5 · scenario: Customer Support Resolution Agent</p></div>
+</li>
+<li class="q" id="q8" data-i="7">
+<p class="qn"><span class="num">8</span><span class="dom">Agentic Architecture &amp; Orchestration</span></p>
+<p class="qt">Which pairing of task to decomposition strategy is correct in both cases?</p>
+<ul class="opts"><li><label><input type="radio" name="q7" value="0"><span>Both → prompt chaining, since predictability aids CI</span></label></li>
+<li><label><input type="radio" name="q7" value="1"><span>Fixed four-aspect PR review → prompt chaining; open-ended production incident investigation → dynamic adaptive decomposition</span></label></li>
+<li><label><input type="radio" name="q7" value="2"><span>Fixed four-aspect PR review → dynamic adaptive decomposition; open-ended incident investigation → prompt chaining</span></label></li>
+<li><label><input type="radio" name="q7" value="3"><span>Both → dynamic adaptive decomposition, since real inputs always vary</span></label></li></ul>
+<button class="check" type="button" data-i="7">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Prompt chaining suits predictable multi-aspect reviews where the shape of the work is fixed regardless of content. Dynamic adaptive decomposition suits open-ended investigation where intermediate findings should change what happens next.</p>
+<p class="ts">Exam guide task statement 1.6 · scenario: Claude Code for Continuous Integration</p></div>
+</li>
+<li class="q" id="q9" data-i="8">
+<p class="qn"><span class="num">9</span><span class="dom">Tool Design &amp; MCP Integration</span></p>
+<p class="qt">Which distinction does the guide say prevents wasted retry attempts?</p>
+<ul class="opts"><li><label><input type="radio" name="q8" value="0"><span>Returning a stack trace so the agent can diagnose the cause</span></label></li>
+<li><label><input type="radio" name="q8" value="1"><span>Returning structured metadata that separates retryable from non-retryable errors</span></label></li>
+<li><label><input type="radio" name="q8" value="2"><span>Returning HTTP status codes rather than prose messages</span></label></li>
+<li><label><input type="radio" name="q8" value="3"><span>Returning errors asynchronously so the agent can continue</span></label></li></ul>
+<button class="check" type="button" data-i="8">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names the difference between retryable and non-retryable errors, and how returning structured metadata prevents wasted retry attempts. Status codes and stack traces still require interpretation, and asynchronous delivery does not address retry decisions.</p>
+<p class="ts">Exam guide task statement 2.2 · scenario: Multi-Agent Research System</p></div>
+</li>
+<li class="q" id="q10" data-i="9">
+<p class="qn"><span class="num">10</span><span class="dom">Tool Design &amp; MCP Integration</span></p>
+<p class="qt">A refund is refused because it violates a policy limit. Which error shape lets the agent respond appropriately without wasting retries?</p>
+<ul class="opts"><li><label><input type="radio" name="q9" value="0"><span>isError true, errorCategory &#x27;transient&#x27;, isRetryable true, with a retry_after hint</span></label></li>
+<li><label><input type="radio" name="q9" value="1"><span>A plain exception message containing the policy text for the model to parse</span></label></li>
+<li><label><input type="radio" name="q9" value="2"><span>An empty successful result so the agent moves on to alternative resolutions</span></label></li>
+<li><label><input type="radio" name="q9" value="3"><span>isError true, errorCategory &#x27;business&#x27;, isRetryable false, plus a customer-friendly explanation</span></label></li></ul>
+<button class="check" type="button" data-i="9">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>A policy violation is a business error that will not succeed on retry however many times it is attempted, so isRetryable must be false, and a customer-friendly explanation lets the agent communicate the outcome. Marking it transient invites pointless retries. A raw exception forces parsing. Returning empty-as-success is the suppression anti-pattern.</p>
+<p class="ts">Exam guide task statement 2.2 · scenario: Customer Support Resolution Agent</p></div>
+</li>
+<li class="q" id="q11" data-i="10">
+<p class="qn"><span class="num">11</span><span class="dom">Tool Design &amp; MCP Integration</span></p>
+<p class="qt">An Edit call fails because the anchor text appears in six places. What is the documented fallback?</p>
+<ul class="opts"><li><label><input type="radio" name="q10" value="0"><span>Use Glob to locate a file where the anchor is unique</span></label></li>
+<li><label><input type="radio" name="q10" value="1"><span>Call Edit repeatedly until all six are updated</span></label></li>
+<li><label><input type="radio" name="q10" value="2"><span>Delete the file and Write a fresh version from memory</span></label></li>
+<li><label><input type="radio" name="q10" value="3"><span>Read the file, then Write it back with the change applied</span></label></li></ul>
+<button class="check" type="button" data-i="10">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names using Read to load full file contents followed by Write when Edit cannot find unique anchor text. Repeating a failing Edit does not resolve non-uniqueness, and rewriting from memory risks losing content.</p>
+<p class="ts">Exam guide task statement 2.5 · scenario: Developer Productivity with Claude</p></div>
+</li>
+<li class="q" id="q12" data-i="11">
+<p class="qn"><span class="num">12</span><span class="dom">Claude Code Configuration &amp; Workflows</span></p>
+<p class="qt">A monorepo has packages with genuinely different standards, and each package maintainer knows their own domain. Which mechanism keeps CLAUDE.md modular while letting maintainers own their rules?</p>
+<ul class="opts"><li><label><input type="radio" name="q11" value="0"><span>@import syntax referencing the specific standards files relevant to each package</span></label></li>
+<li><label><input type="radio" name="q11" value="1"><span>A user-level CLAUDE.md per maintainer describing their own package</span></label></li>
+<li><label><input type="radio" name="q11" value="2"><span>One root CLAUDE.md listing every package&#x27;s standards under headings</span></label></li>
+<li><label><input type="radio" name="q11" value="3"><span>Duplicating the full standards file into every package directory</span></label></li></ul>
+<button class="check" type="button" data-i="11">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names using @import to selectively include relevant standards files in each package&#x27;s CLAUDE.md based on maintainer domain knowledge. A single root file becomes a monolith. User-level files are not shared. Duplication creates drift.</p>
+<p class="ts">Exam guide task statement 3.1 · scenario: Claude Code for Continuous Integration</p></div>
+</li>
+<li class="q" id="q13" data-i="12">
+<p class="qn"><span class="num">13</span><span class="dom">Claude Code Configuration &amp; Workflows</span></p>
+<p class="qt">Your automated review re-reports the same issues on every push, even after they are fixed. What is the recommended fix?</p>
+<ul class="opts"><li><label><input type="radio" name="q12" value="0"><span>Cache the previous run&#x27;s output and diff it before posting comments</span></label></li>
+<li><label><input type="radio" name="q12" value="1"><span>Reduce review frequency to once per pull request rather than per push</span></label></li>
+<li><label><input type="radio" name="q12" value="2"><span>Only review files changed since the last successful run</span></label></li>
+<li><label><input type="radio" name="q12" value="3"><span>Give the run the findings from the review before it, and tell it to report only what is new or still unaddressed</span></label></li></ul>
+<button class="check" type="button" data-i="12">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names including prior review findings in context when re-running reviews after new commits, instructing Claude to report only new or still-unaddressed issues. Client-side diffing and file filtering do not give the model the awareness to judge whether an issue was addressed.</p>
+<p class="ts">Exam guide task statement 3.6 · scenario: Claude Code for Continuous Integration</p></div>
+</li>
+<li class="q" id="q14" data-i="13">
+<p class="qn"><span class="num">14</span><span class="dom">Claude Code Configuration &amp; Workflows</span></p>
+<p class="qt">Your migration script mishandles null values. Which correction does the guide describe as most effective?</p>
+<ul class="opts"><li><label><input type="radio" name="q13" value="0"><span>Describe the null-handling policy in more precise prose</span></label></li>
+<li><label><input type="radio" name="q13" value="1"><span>Ask the model to add defensive null checks throughout</span></label></li>
+<li><label><input type="radio" name="q13" value="2"><span>Add the null case to CLAUDE.md as a standing rule</span></label></li>
+<li><label><input type="radio" name="q13" value="3"><span>Provide a specific test case with example input containing nulls and the expected output</span></label></li></ul>
+<button class="check" type="button" data-i="13">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names providing specific test cases with example input and expected output to fix edge case handling, giving null values in migration scripts as the example. Prose remains interpretable, blanket defensiveness is unfocused, and a standing rule is disproportionate to one edge case.</p>
+<p class="ts">Exam guide task statement 3.5 · scenario: Code Generation with Claude Code</p></div>
+</li>
+<li class="q" id="q15" data-i="14">
+<p class="qn"><span class="num">15</span><span class="dom">Prompt Engineering &amp; Structured Output</span></p>
+<p class="qt">Before submitting 50,000 documents to the batch API, what does the guide recommend?</p>
+<ul class="opts"><li><label><input type="radio" name="q14" value="0"><span>Split the submission into batches of exactly 100 for reliability</span></label></li>
+<li><label><input type="radio" name="q14" value="1"><span>Pre-validate every document against the schema before submission</span></label></li>
+<li><label><input type="radio" name="q14" value="2"><span>Run the first 5,000 synchronously to warm the model&#x27;s behaviour</span></label></li>
+<li><label><input type="radio" name="q14" value="3"><span>Refine the prompt on a sample set to maximise first-pass success and reduce resubmission costs</span></label></li></ul>
+<button class="check" type="button" data-i="14">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names using prompt refinement on a sample set before batch-processing large volumes to maximise first-pass success rates and reduce iterative resubmission costs. Fixed batch sizes, warm-up runs and pre-validating documents against an output schema are not the described practice.</p>
+<p class="ts">Exam guide task statement 4.5 · scenario: Structured Data Extraction</p></div>
+</li>
+<li class="q" id="q16" data-i="15">
+<p class="qn"><span class="num">16</span><span class="dom">Prompt Engineering &amp; Structured Output</span></p>
+<p class="qt">Why does the guide say high false positive rates in one category are especially damaging?</p>
+<ul class="opts"><li><label><input type="radio" name="q15" value="0"><span>They cause the model to overfit to that category over time</span></label></li>
+<li><label><input type="radio" name="q15" value="1"><span>They undermine developer confidence in the accurate categories too</span></label></li>
+<li><label><input type="radio" name="q15" value="2"><span>They increase API costs disproportionately</span></label></li>
+<li><label><input type="radio" name="q15" value="3"><span>They delay the pipeline beyond acceptable build times</span></label></li></ul>
+<button class="check" type="button" data-i="15">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide states that high false positive categories undermine confidence in accurate categories — trust in the review as a whole collapses. Cost, overfitting and build time are not the stated concern.</p>
+<p class="ts">Exam guide task statement 4.1 · scenario: Claude Code for Continuous Integration</p></div>
+</li>
+<li class="q" id="q17" data-i="16">
+<p class="qn"><span class="num">17</span><span class="dom">Prompt Engineering &amp; Structured Output</span></p>
+<p class="qt">Your per-file review passes are working well — findings are consistent and specific — but the pipeline keeps missing bugs where one file&#x27;s change breaks an assumption another file relies on. How should you extend the architecture?</p>
+<ul class="opts"><li><label><input type="radio" name="q16" value="0"><span>Ask the session that produced the per-file findings to re-read them and infer the cross-file effects</span></label></li>
+<li><label><input type="radio" name="q16" value="1"><span>Re-check only the files whose per-file pass returned the highest-severity findings</span></label></li>
+<li><label><input type="radio" name="q16" value="2"><span>Add a separate integration pass over the full change set, run after the per-file passes and focused on cross-file data flow</span></label></li>
+<li><label><input type="radio" name="q16" value="3"><span>Have each per-file pass also load every file that file imports, so cross-file context is present throughout</span></label></li></ul>
+<button class="check" type="button" data-i="16">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide pairs per-file local analysis with a separate integration pass examining cross-file data flow. The per-file passes are already doing their job here; what is missing is the pass that looks across them. Loading every imported file into each per-file pass puts most of the change set back in front of every pass, which is the attention dilution the split existed to prevent. Asking the same session to infer the cross-file effects runs into the self-review limitation the guide describes: it retains the reasoning that produced those findings and is less likely to question them. Severity ranking decides what to look at again; it does not examine the relationships between files.</p>
+<p class="ts">Exam guide task statement 4.6 · scenario: Claude Code for Continuous Integration</p></div>
+</li>
+<li class="q" id="q18" data-i="17">
+<p class="qn"><span class="num">18</span><span class="dom">Prompt Engineering &amp; Structured Output</span></p>
+<p class="qt">An engineer believes that because their schema is strict, extracted invoices cannot contain incorrect totals. What is the error in this reasoning?</p>
+<ul class="opts"><li><label><input type="radio" name="q17" value="0"><span>Strict schemas are only enforced when tool_choice is forced</span></label></li>
+<li><label><input type="radio" name="q17" value="1"><span>Strict schemas eliminate syntax errors but not semantic errors, such as line items that do not sum to the stated total</span></label></li>
+<li><label><input type="radio" name="q17" value="2"><span>Strict mode applies to input parameters, not to extracted values</span></label></li>
+<li><label><input type="radio" name="q17" value="3"><span>Schema validation runs after the response is parsed, so it cannot reject values</span></label></li></ul>
+<button class="check" type="button" data-i="17">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide states directly that strict JSON schemas via tool use eliminate syntax errors but do not prevent semantic errors, giving line items that do not sum to the total as the example. Correct shape is not correct content.</p>
+<p class="ts">Exam guide task statement 4.3 · scenario: Structured Data Extraction</p></div>
+</li>
+<li class="q" id="q19" data-i="18">
+<p class="qn"><span class="num">19</span><span class="dom">Context Management &amp; Reliability</span></p>
+<p class="qt">Each subagent in a research pipeline returns its findings with source URLs attached. The pipeline summarises each subagent&#x27;s output before synthesis, and the final report states claims without saying which source supports them. Where was the attribution lost?</p>
+<ul class="opts"><li><label><input type="radio" name="q18" value="0"><span>At the summarisation step, which compressed the findings without carrying the claim-to-source mapping through</span></label></li>
+<li><label><input type="radio" name="q18" value="1"><span>In the report template, which has no field for citations</span></label></li>
+<li><label><input type="radio" name="q18" value="2"><span>At synthesis, which merged findings from subagents using different citation formats</span></label></li>
+<li><label><input type="radio" name="q18" value="3"><span>At collection, because the subagents were never asked to record their sources</span></label></li></ul>
+<button class="check" type="button" data-i="18">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>Task statement 5.6 names summarisation as where source attribution is lost: findings are compressed and the claim-source mapping is not among what survives, so synthesis receives claims with nothing attached to them. The remedy in the same task statement is structured claim-source mappings that every downstream step preserves and merges. Synthesis cannot restore a mapping it never received, differing citation formats would be a merge problem rather than a loss, and a missing template field would show as citations omitted from the report rather than claims whose sources are gone.</p>
+<p class="ts">Exam guide task statement 5.6 · scenario: Multi-Agent Research System</p></div>
+</li>
+<li class="q" id="q20" data-i="19">
+<p class="qn"><span class="num">20</span><span class="dom">Context Management &amp; Reliability</span></p>
+<p class="qt">During analysis a document is found to contain two conflicting values for the same figure. What should the document analysis agent return?</p>
+<ul class="opts"><li><label><input type="radio" name="q19" value="0"><span>A null value with an error flag, since the document is unreliable</span></label></li>
+<li><label><input type="radio" name="q19" value="1"><span>The value appearing later in the document, as it likely supersedes the earlier</span></label></li>
+<li><label><input type="radio" name="q19" value="2"><span>A single reconciled value with the reasoning recorded internally</span></label></li>
+<li><label><input type="radio" name="q19" value="3"><span>Both values, explicitly annotated as conflicting, letting the coordinator decide how to reconcile</span></label></li></ul>
+<button class="check" type="button" data-i="19">Check answer</button>
+<div class="why" hidden><p class="verdict"></p><p>The guide names completing document analysis with conflicting values included and explicitly annotated, letting the coordinator decide how to reconcile before passing to synthesis. Silent selection, nulling the field, or hidden reconciliation all destroy information the coordinator needs.</p>
+<p class="ts">Exam guide task statement 5.6 · scenario: Structured Data Extraction</p></div>
+</li>
+  </ol>
+
+  <p style="margin-top:26px"><button id="scoreBtn" type="button">Score my mock</button></p>
+
+  <div id="score" hidden>
+    <h3>Your result</h3>
+    <p class="total"><span id="pct">0%</span></p>
+    <p class="small" id="advice"></p>
+    <table><thead><tr><th>Domain</th><th>Correct</th></tr></thead><tbody id="byd"></tbody></table>
+  </div>
+
+  <p class="small">Found a question that felt unfair or wrong?
+    <a href="mailto:kalinyorgov@gmail.com?subject=CCAR-F%20free%20mock%20feedback">Tell me which one</a>
+    — it gets fixed.</p>
+
+  <div class="buys">
+    <a class="buy first" href="https://www.udemy.com/course/ccar-f-cca-f-practice-exams-claude-certified-architect-unofficial/"><b>All 360 questions, six timed mocks</b>
+      <span>Six full-length exams on Udemy, every option explained</span></a>
+    <a class="buy" href="https://payhip.com/b/WLpqX"><b>The offline app edition — €14</b>
+      <span>369 questions, 528 flashcards, seven build tasks. Runs from a file.</span></a>
+  </div>
+
+  <p class="small" style="margin-top:20px">Prefer paper? <a href="https://payhip.com/b/zh734">The same 20 questions
+  and the 8 misconceptions as free PDFs</a> (email required).</p>
+
+  <p class="small" style="margin-top:10px">If this helped, <a href="https://github.com/KalinYorgov/ccar-f-cca-f-practice-questions">star the repo</a>
+  — it is how other people find it.</p>
+ </div>
+</section>
+
+<section class="w">
+  <h2>Questions people ask</h2>
+<div class="fq"><h3>How much does the Claude Certified Architect – Foundations exam cost?</h3><p>$125 USD since 30 June 2026 (it was $99). Select, Preferred and Global Premier partners get 50% off; Global Premier partners pay nothing through 31 December 2026. Retakes cost the full fee.</p></div>
+<div class="fq"><h3>How do I register for CCAR-F?</h3><p>Through the Anthropic Partner Academy, then Pearson VUE (online proctored or a test centre). Registration needs a company email at a Claude Partner Network organisation.</p></div>
+<div class="fq"><h3>Is the Claude Certified Architect exam free?</h3><p>No. The first 5,000 partner employees at launch sat it free; since then it is $125, with partner-tier discounts.</p></div>
+<div class="fq"><h3>Can I take the exam without working for a partner?</h3><p>Not as of September 2026. Registration requires a partner email domain; personal addresses are rejected. No public date has been announced.</p></div>
+<div class="fq"><h3>How many questions are on the exam, and how long is it?</h3><p>60 items in 120 minutes, drawn from 4 of 6 scenarios. Items are multiple-choice and multiple-response; each item says how many answers to select.</p></div>
+<div class="fq"><h3>Where is the official exam guide PDF?</h3><p>Linked from the Partner Academy certification FAQ page; version 1.0, effective July 2026, 39 pages. Versions 0.1 and 0.2 differ only in formatting.</p></div>
+<div class="fq"><h3>What does a scaled score of 720 mean?</h3><p>Scores are reported on a 100 to 1,000 scale and equated across exam forms of different difficulty, so 720 is not &quot;72% correct&quot; and cannot be converted to a number of questions you may miss. Your score report shows percent-correct per domain, but only the total decides pass or fail.</p></div>
+<div class="fq"><h3>How long is the certification valid, and how do I renew?</h3><p>12 months. If you renew on time you take a free, non-proctored assessment on the Partner Academy; if it lapses you sit the full exam again at full price.</p></div>
+</section>
+
+<footer class="w">
+  <p>This is an independent study aid. It is not affiliated with, endorsed by, sponsored by, or otherwise connected to Anthropic, PBC. “Claude”, “Claude Code” and “Claude Certified Architect” are trademarks of Anthropic, PBC, used only to identify the exam this material prepares for. Every question was written from the publicly available exam guide and is checked after every edit against the twelve sample questions the guide contains; none is reproduced from any live exam. Passing is not guaranteed. The exam is currently open only to employees of Claude Partner Network organisations; check eligibility before you buy.</p>
+  <p style="margin-top:14px">Kalin Yorgov · Sofia, Bulgaria ·
+    <a href="mailto:kalinyorgov@gmail.com">kalinyorgov@gmail.com</a> · not VAT-registered ·
+    <a href="https://github.com/KalinYorgov/ccar-f-cca-f-practice-questions">source on GitHub</a></p>
+</footer>
+
+<script>
+(function(){
+var Q=[{"a": [0, 3], "d": "Tool Design & MCP Integration"}, {"a": [2, 3], "d": "Claude Code Configuration & Workflows"}, {"a": [3], "d": "Agentic Architecture & Orchestration"}, {"a": [1], "d": "Agentic Architecture & Orchestration"}, {"a": [2], "d": "Agentic Architecture & Orchestration"}, {"a": [1], "d": "Agentic Architecture & Orchestration"}, {"a": [0], "d": "Agentic Architecture & Orchestration"}, {"a": [1], "d": "Agentic Architecture & Orchestration"}, {"a": [1], "d": "Tool Design & MCP Integration"}, {"a": [3], "d": "Tool Design & MCP Integration"}, {"a": [3], "d": "Tool Design & MCP Integration"}, {"a": [0], "d": "Claude Code Configuration & Workflows"}, {"a": [3], "d": "Claude Code Configuration & Workflows"}, {"a": [3], "d": "Claude Code Configuration & Workflows"}, {"a": [3], "d": "Prompt Engineering & Structured Output"}, {"a": [1], "d": "Prompt Engineering & Structured Output"}, {"a": [2], "d": "Prompt Engineering & Structured Output"}, {"a": [1], "d": "Prompt Engineering & Structured Output"}, {"a": [0], "d": "Context Management & Reliability"}, {"a": [3], "d": "Context Management & Reliability"}];
+var qs=[].slice.call(document.querySelectorAll('.q'));
+
+function marked(li){
+  var i=+li.dataset.i, want=Q[i].a;
+  var got=[].slice.call(li.querySelectorAll('input:checked')).map(function(x){return +x.value});
+  return {want:want,got:got,
+    ok: got.length===want.length && got.every(function(v){return want.indexOf(v)>-1})};
+}
+
+qs.forEach(function(li){
+  li.querySelector('.check').addEventListener('click',function(){
+    var r=marked(li);
+    if(!r.got.length){return}
+    li.classList.add('done');
+    [].slice.call(li.querySelectorAll('.opts li')).forEach(function(o,j){
+      var lab=o.querySelector('label'), inp=o.querySelector('input');
+      inp.disabled=true;
+      if(r.want.indexOf(j)>-1){lab.classList.add('right')}
+      else if(r.got.indexOf(j)>-1){lab.classList.add('wrong')}
+    });
+    var why=li.querySelector('.why'), v=why.querySelector('.verdict');
+    v.textContent = r.ok ? 'Correct.' : 'Not quite.';
+    v.className='verdict '+(r.ok?'y':'n');
+    why.hidden=false;
+    this.disabled=true;
+    li.dataset.ok = r.ok ? '1' : '0';
+  });
+});
+
+document.getElementById('scoreBtn').addEventListener('click',function(){
+  var by={}, right=0, answered=0;
+  qs.forEach(function(li){
+    var i=+li.dataset.i, d=Q[i].d, r=marked(li);
+    if(!by[d]){by[d]=[0,0]}
+    by[d][1]++;
+    if(r.got.length){answered++}
+    if(r.ok){right++; by[d][0]++}
+  });
+  var pct=Math.round(right/qs.length*100);
+  document.getElementById('pct').textContent=pct+'%  ('+right+' of '+qs.length+')';
+  document.getElementById('advice').textContent = answered<qs.length
+    ? (qs.length-answered)+' unanswered, counted as wrong. Target 85% or better before you book — not 72%.'
+    : 'Target 85% or better before you book — not 72%. A 20-item sample is noisy; treat it as a direction, not a verdict.';
+  var t=document.getElementById('byd'); t.innerHTML='';
+  Object.keys(by).forEach(function(d){
+    var tr=document.createElement('tr');
+    var th=document.createElement('th'); th.scope='row'; th.textContent=d;
+    var td=document.createElement('td'); td.textContent=by[d][0]+' / '+by[d][1];
+    tr.appendChild(th); tr.appendChild(td); t.appendChild(tr);
+  });
+  var s=document.getElementById('score'); s.hidden=false;
+  s.scrollIntoView({behavior:'smooth',block:'start'});
+});
+})();
+</script>
+</body></html>
